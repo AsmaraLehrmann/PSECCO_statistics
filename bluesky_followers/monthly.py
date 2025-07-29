@@ -10,7 +10,7 @@ async def get_follower_count(handle):
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         await page.goto(url, wait_until='networkidle')
-        locator = page.locator("a:has(span:text('Followers')) span").nth(1)
+        locator = page.locator("a[href$='/followers'] span").first
         await locator.wait_for()
         count = await locator.inner_text()
         await browser.close()
