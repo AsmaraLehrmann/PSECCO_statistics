@@ -26,11 +26,12 @@ jobs:
       - name: Run follower scraper
         run: python bluesky_followers/monthly.py
 
-
       - name: Commit updated CSV
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add bluesky_followers/data/bsky_followers.csv
+          git add -f bluesky_followers/data/bsky_followers.csv
           git commit -m "Monthly update: $(date +'%Y-%m-%d')" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+
+    
