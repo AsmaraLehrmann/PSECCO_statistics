@@ -24,7 +24,8 @@ jobs:
           playwright install chromium
 
       - name: Run follower scraper
-        run: python monthly.py
+        run: python bluesky_followers/monthly.py
+
 
       - name: Commit updated CSV
         run: |
