@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       - name: Scrape Instagram followers
-        run: python monthly_instagram_followers.py
+        run: python instagram_followers/monthly_instagram_followers.py
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions"
