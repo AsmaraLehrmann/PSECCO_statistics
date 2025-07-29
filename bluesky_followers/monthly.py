@@ -21,8 +21,8 @@ async def main():
     count = await get_follower_count(handle)
     today = datetime.date.today().isoformat()
 
-    os.makedirs("data", exist_ok=True)
-    with open("data/bsky_followers.csv", "a", newline="") as f:
+    os.makedirs("bluesky_followers/data", exist_ok=True)
+    with open("bluesky_followers/data/bsky_followers.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([today, handle, count])
     print(f"{today}: {handle} has {count} followers")
