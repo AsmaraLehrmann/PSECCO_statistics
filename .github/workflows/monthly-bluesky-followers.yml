@@ -31,6 +31,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/bsky_followers.csv
+          git add bluesky_followers/data/bsky_followers.csv
           git commit -m "Monthly update: $(date +'%Y-%m-%d')" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
